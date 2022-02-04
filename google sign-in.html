@@ -1,5 +1,7 @@
 <meta name="google-signin-client_id" content="YOUR_CLIENT_ID.apps.googleusercontent.com">
 
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
 <script src="https://apis.google.com/js/platform.js" async defer></script>
 
 <div class="g-signin2" data-onsuccess="onSignIn"></div>
@@ -84,4 +86,19 @@ if (idToken != null) {
       console.log('User signed out.');
     });
   }
+</script>
+
+<div id="g_id_onload"
+     data-client_id="YOUR_GOOGLE_CLIENT_ID"
+     data-auto_select="true"
+     data-login_uri="https://your.domain/your_login_endpoint">
+</div>
+
+<div class="g_id_signout">Sign Out</div>
+
+<script>
+  const button = document.getElementById(‘signout_button’);
+    button.onclick = () => {
+      google.accounts.id.disableAutoSelect();
+    }
 </script>
